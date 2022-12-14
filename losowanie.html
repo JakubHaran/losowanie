@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: 1fr 1fr;
+
+        }
+
+        .box.a1 {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+
+        .box.a2 {
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+
+        .box.a3 {
+            grid-column: 3/4;
+            grid-row: 1/2;
+        }
+
+        .box.a4 {
+            grid-column: 4/5;
+            grid-row: 1/2;
+        }
+
+        .box.a5 {
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+
+        .box.a6 {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+
+        .box.a7 {
+            grid-column: 3/4;
+            grid-row: 2/3;
+        }
+
+        .box.a8 {
+            grid-column: 4/5;
+            grid-row: 2/3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="box ">
+            <h1>1</h1>
+        </div>
+        <div class="box ">
+            <h1>2</h1>
+        </div>
+        <div class="box ">
+            <h1>3</h1>
+        </div>
+        <div class="box ">
+            <h1>4</h1>
+        </div>
+        <div class="box ">
+            <h1>5</h1>
+        </div>
+        <div class="box ">
+            <h1>6</h1>
+        </div>
+        <div class="box ">
+            <h1>7</h1>
+        </div>
+        <div class="box ">
+            <h1>8</h1>
+        </div>
+    </div>
+    <script>
+        const box = document.querySelectorAll(".box");
+        let mathRandom;
+        let numbers = [];
+
+        const random = () => {
+            for (let i = 0; i < box.length; i++) {
+                mathRandom = Math.floor(Math.random() * 8) + 1;
+                if (!numbers.includes(mathRandom)) {
+
+                    box[i].classList.add(`a${mathRandom}`);
+                    numbers.push(mathRandom);
+                } else {
+                    do {
+                        mathRandom = Math.floor(Math.random() * 8) + 1;
+                        if (!numbers.includes(mathRandom)) {
+                            box[i].classList.add(`a${mathRandom}`);
+                        };
+                    } while (numbers.includes(mathRandom))
+                }
+                numbers.push(mathRandom);
+
+            };
+        }
+        random()
+    </script>
+</body>
+
+</html>
